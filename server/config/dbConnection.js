@@ -2,7 +2,13 @@ import mongoose from 'mongoose';
 import config from './index';
 
 const URI = config.mongoURI;
-mongoose.connect(URI);
+// MongoDB Atlas
+mongoose.connect(URI, {
+	useNewUrlParser: true,
+	useUnifiedTopology: true,
+	useCreateIndex: true
+});
+// mongoose.connect(URI);
 
 // When successfully connected
 mongoose.connection.on('connected', () => {
