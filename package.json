@@ -10,8 +10,8 @@
 		"clean": "rm -rf build && mkdir build",
 		"build-babel": "babel -d ./build ./server -s",
 		"build": "npm run clean && npm run build-babel",
-		"start": "npm run build && node ./build/index.js",
-		"heroku-postbuild": "npm install --prefix client && npm run client-build"
+		"start": "node ./build/index.js",
+		"heroku-postbuild": "npm run build && npm install --prefix client && npm run client-build"
 	},
 	"keywords": [],
 	"author": "Aman Mittal <amandeepmittal@live.com> (www.amanhimself.me)",
