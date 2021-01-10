@@ -4,13 +4,14 @@
 	"description": "MERN stack auth demo with Material UI.",
 	"main": "index.js",
 	"scripts": {
-		"dev": "babel-watch server/index.js",
+		"client-build": "npm run build --prefix client",
+		"dev": "npm run client-build && babel-watch server/index.js",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"clean": "rm -rf build && mkdir build",
 		"build-babel": "babel -d ./build ./server -s",
 		"build": "npm run clean && npm run build-babel",
 		"start": "npm run build && node ./build/index.js",
-		"heroku-postbuild": "cd client && npm install && npm run build"
+		"heroku-postbuild": "npm install --prefix client && npm run client-build"
 	},
 	"keywords": [],
 	"author": "Aman Mittal <amandeepmittal@live.com> (www.amanhimself.me)",
