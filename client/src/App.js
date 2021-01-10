@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import { createMuiTheme } from '@material-ui/core/styles';
 import green from '@material-ui/core/colors/green';
@@ -27,16 +27,14 @@ const theme = createMuiTheme({
 	}
 });
 
-class App extends Component {
-	render() {
-		return (
-			<BrowserRouter>
-				<MuiThemeProvider theme={theme}>
-					<Routes />
-				</MuiThemeProvider>
-			</BrowserRouter>
-		);
-	}
+function App() {
+	return (
+		<BrowserRouter>
+			<MuiThemeProvider theme={theme}>
+				<Routes />
+			</MuiThemeProvider>
+		</BrowserRouter>
+	);
 }
 
 export default App;
