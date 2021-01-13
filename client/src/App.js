@@ -24,7 +24,10 @@ const theme = createMuiTheme({
 		openTitle: green['400'],
 		protectTitle: red['400'],
 		type: 'dark'
-	}
+	},
+  typography: {
+    useNextVariants: true,
+  },
 });
 
 function App() {
