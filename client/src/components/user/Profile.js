@@ -10,7 +10,7 @@ import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import Person from '@material-ui/icons/Person';
 import Divider from '@material-ui/core/Divider';
-import auth from '../auth/auth-helper';
+import auth from '../../utils/auth-helper';
 import { findUserProfile } from '../../utils/api-user.js';
 import { Redirect } from 'react-router-dom';
 

@@ -7,7 +7,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogContent from '@material-ui/core/DialogContent';
 import Dialog from '@material-ui/core/Dialog';
 import Delete from '@material-ui/icons/Delete';
-import auth from '../auth/auth-helper';
+import auth from '../../utils/auth-helper';
 import { deleteUser } from '../../utils/api-user';
 import { Redirect } from 'react-router-dom';
 
