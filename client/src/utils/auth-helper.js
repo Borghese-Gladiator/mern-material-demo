@@ -1,4 +1,4 @@
-import { signout } from '../../utils/api-auth.js'
+import { signout } from './api-auth.js'
 
 const auth = {
 	isAuthenticated() {
