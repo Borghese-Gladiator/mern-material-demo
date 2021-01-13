@@ -1,9 +1,11 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
-
+import { Route, Switch, useLocation } from 'react-router-dom';
 // layout
-import LoginLayout from "./components/_layouts/LoginLayout";
-import AuthLayout from "./components/_layouts/AuthLayout";
+import NoLayout from "./components/_layouts/NoLayout";
+import GuestLayout from "./components/_layouts/GuestLayout";
+import AuthLayout from "./components/_layouts/AuthLayout/AuthLayout";
+// auth utils
+import auth from './utils/auth-helper';
 // components
 import Home from './components/Home';
 import PrivateRoutes from './components/auth/PrivateRoutes';
@@ -11,9 +13,26 @@ import Signin from './components/auth/Signin';
 import Profile from './components/user/Profile';
 import Signup from './components/user/Signup';
 
+
+
 function Routes() {
-	const Layout = false ? AuthLayout : LoginLayout;
-	
+	const Layout = function() {
+		const isLoggedIn = auth.isAuthenticated();
+		if (isLoggedIn) {
+			console.log("AUTH LAYOUT")
+			return AuthLayout;
+		} else {
+			const { pathname } = useLocation();
+			if (pathname === "/signin") {
+				console.log("NO LAYOUT")
+				return NoLayout;
+			} else {
+				console.log("GUEST LAYOUT")
+				return GuestLayout;
+			}	
+		}
+	}()
+
 	return (
 		<div>
 			<Layout>
