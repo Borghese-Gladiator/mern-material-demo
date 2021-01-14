@@ -12,8 +12,7 @@ import PrivateRoutes from './components/auth/PrivateRoutes';
 import Signin from './components/auth/Signin';
 import Profile from './components/user/Profile';
 import Signup from './components/user/Signup';
-
-
+import ForgotPassword from './components/user/ForgotPassword';
 
 function Routes() {
 	const Layout = function() {
@@ -42,6 +41,7 @@ function Routes() {
 					<Route path="/user/:userId" component={Profile} />
 					<Route path="/signup" component={Signup} />
 					<Route path="/signin" component={Signin} />
+					<Route path="/password_reset" component={ForgotPassword} />
 				</Switch>
 			</Layout>
 		</div>
