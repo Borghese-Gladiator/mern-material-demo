@@ -5,33 +5,70 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import Home from '@material-ui/icons/Home';
 import Button from '@material-ui/core/Button';
-import { Link, withRouter } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core/styles';
+import { Link, NavLink } from 'react-router-dom';
 
-const isActive = (history, path) => {
-	if (history.location.pathname === path) return { color: '#F44336' };
-	else return { color: '#ffffff' };
-};
-const Menu = withRouter(({ history }) => (
-	<AppBar position="static">
-		<Toolbar>
-			<Typography type="title" color="inherit">
-				MERN App
-			</Typography>
-			<Link to="/">
-				<IconButton aria-label="Home" style={isActive(history, '/')}>
-					<Home />
-				</IconButton>
-			</Link>
-			<span>
-				<Link to="/signup">
-					<Button style={isActive(history, '/signup')}>Sign up</Button>
-				</Link>
-				<Link to="/signin">
-					<Button style={isActive(history, '/signin')}>Sign In</Button>
-				</Link>
-			</span>
-		</Toolbar>
-	</AppBar>
-));
+const useStyles = makeStyles((theme) => ({
+  grow: {
+    flexGrow: 1,
+	},
+	link: {
+		color: "white"
+	},
+}));
+
+function Menu() {
+	const classes = useStyles();
+	return (
+		<AppBar position="static">
+			<Toolbar>
+				<Typography type="title" color="inherit">
+					MERN App
+				</Typography>
+				<div className={classes.grow} />
+				<NavLink
+					to="/"
+					isActive={(match, location) => {
+						if(!location) return false;
+						const { pathname } = location;
+						// check for HOME exact match
+						return pathname === "/";
+					}}
+					activeStyle={{
+						fontWeight: "bold",
+						color: '#F44336'
+					}}
+					className={classes.link}
+				>
+					<IconButton aria-label="Home" color="inherit">
+						<Home />
+					</IconButton>
+				</NavLink>
+				<span>
+					<NavLink
+						to="/signup"
+						activeStyle={{
+							fontWeight: "bold",
+							color: '#F44336'
+						}}
+						className={classes.link}
+					>
+						<Button color="inherit">Sign up</Button>
+					</NavLink>
+					<NavLink
+						to="/signin"
+						activeStyle={{
+							fontWeight: "bold",
+							color: '#F44336'
+						}}
+						className={classes.link}
+					>
+						<Button color="inherit">Sign in</Button>
+					</NavLink>
+				</span>
+			</Toolbar>
+		</AppBar>
+	);
+}
 
 export default Menu;
