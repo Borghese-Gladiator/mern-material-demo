@@ -9,5 +9,8 @@ Fullstack App with auth (JWT) using MERN and Material UI
 
 # Client Changes
 - Fix Material UI Warnings (typography upgrade && raised property replaced by contained)
+- upgraded Material UI from 3.x to 4.x (new components: Box, Container)
 - upgraded React Router from 4.x to 5.x (and changed withRouter to useLocation function)
 - new theme colors in client/src/App.js
+- fix hard-coded colors not using themes in navbar & sign in
+- error message use Alert component
