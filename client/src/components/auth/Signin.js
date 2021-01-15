@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
 import { signin } from '../../utils/api-auth.js';
 import auth from '../../utils/auth-helper';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
+import { withStyles } from '@material-ui/core/styles';
 import { Redirect } from 'react-router-dom';
 // Material UI components
-import Link from '@material-ui/core/Link';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
@@ -17,6 +14,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Container from '@material-ui/core/Container';
 // Material UI Lab component
 import Alert from '@material-ui/lab/Alert';
+import { Link } from 'react-router-dom';
 
 const styles = theme => ({
 	card: {
@@ -148,8 +146,10 @@ class Signin extends Component {
                 onChange={this.handleChange('password')}
               />
               <Box display="flex" justifyContent="flex-end">
-                <Link to="/forgotpassword" variant="body2">
-                  Forgot password?
+                <Link to="/password_reset">
+                  <Typography variant="body2">
+                    Forgot password?
+                  </Typography>
                 </Link>
               </Box>
               <Button
