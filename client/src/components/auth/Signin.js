@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { signin } from '../../utils/api-auth.js';
-import auth from '../../utils/auth-helper';
+// Routing
+import { Link, Redirect } from 'react-router-dom';
+// Material UI Styling
 import { withStyles } from '@material-ui/core/styles';
-import { Redirect } from 'react-router-dom';
 // Material UI components
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -14,26 +14,28 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Container from '@material-ui/core/Container';
 // Material UI Lab component
 import Alert from '@material-ui/lab/Alert';
-import { Link } from 'react-router-dom';
+// utils
+import { signin } from '../../utils/api-auth.js';
+import auth from '../../utils/auth-helper';
 
 const styles = theme => ({
 	card: {
 		maxWidth: 600,
 		margin: 'auto',
 		textAlign: 'center',
-		marginTop: theme.spacing.unit * 5,
-		paddingBottom: theme.spacing.unit * 2
+		marginTop: theme.spacing(5),
+		paddingBottom: theme.spacing(2)
 	},
 	error: {
 		verticalAlign: 'middle'
 	},
 	title: {
-		marginTop: theme.spacing.unit * 2,
+		marginTop: theme.spacing(2),
 		color: theme.palette.primary.dark
 	},
 	textField: {
-		marginLeft: theme.spacing.unit,
-		marginRight: theme.spacing.unit,
+		marginLeft: theme.spacing(1),
+		marginRight: theme.spacing(1),
 		width: 300
   },
   
