@@ -8,10 +8,10 @@ Fullstack App with auth (JWT) using MERN and Material UI
 - deployed to Heroku (using Changes) [https://desolate-escarpment-33302.herokuapp.com/](https://desolate-escarpment-33302.herokuapp.com/)
 
 # Client Changes
-- rewrite to use Layouts rather than hard-coded navbar (AuthLayout, GuestLayout, NoLayout)
-- Fix Material UI Warnings (typography upgrade && raised property replaced by contained)
+- added mobile support to navbar (smaller sizes will make dropdown menu)
 - upgraded Material UI from 3.x to 4.x (new components: Box, Container)
-- upgraded React Router from 4.x to 5.x (and changed withRouter to useLocation function)
+- fixed errors of deprecated theme.spacing.unit
+- upgraded React Router from 4.x to 5.x (and changed withRouter to useLocation function & used NavLink component)
 - new theme colors in client/src/App.js
 - fix hard-coded colors not using themes in navbar & sign in
-- error message use Alert component
+- error messages use Alert component (from Material UI Lab)
