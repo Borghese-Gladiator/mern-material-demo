@@ -15,6 +15,7 @@ import Signup from './components/user/Signup';
 import ForgotPassword from './components/user/ForgotPassword';
 
 function Routes() {
+/*
 	const Layout = function() {
 		const isLoggedIn = auth.isAuthenticated();
 		if (isLoggedIn) {
@@ -29,6 +30,17 @@ function Routes() {
 				console.log("GUEST LAYOUT")
 				return GuestLayout;
 			}	
+		}
+	}()
+*/
+	const Layout = function() {
+		const isLoggedIn = auth.isAuthenticated();
+		if (isLoggedIn) {
+			console.log("AUTH LAYOUT")
+			return AuthLayout;
+		} else {
+			console.log("GUEST LAYOUT")
+			return GuestLayout;
 		}
 	}()
 
