@@ -1,50 +1,46 @@
 import React, { Component } from 'react';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
+// Routing
+import { Link } from 'react-router-dom';
+// Material UI Styling
+import { withStyles } from '@material-ui/core/styles';
+// Material UI components
+import Paper from '@material-ui/core/Paper';
+import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
-import Icon from '@material-ui/core/Icon';
-import { withStyles } from '@material-ui/core/styles';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogContent from '@material-ui/core/DialogContent';
 import Dialog from '@material-ui/core/Dialog';
-import { Link } from 'react-router-dom';
-
+import MaterialLink from '@material-ui/core/Link';
+// Material UI Lab component
+import Alert from '@material-ui/lab/Alert';
+// utils
 import { registerUser } from '../../utils/api-user.js';
 
 const styles = theme => ({
-	card: {
-		maxWidth: 600,
-		margin: 'auto',
-		textAlign: 'center',
-		marginTop: theme.spacing.unit * 5,
-		paddingBottom: theme.spacing.unit * 2
-	},
-	error: {
-		verticalAlign: 'middle'
-	},
-	title: {
-		marginTop: theme.spacing.unit * 2,
-		color: theme.palette.primary.dark
-	},
-	textField: {
-		marginLeft: theme.spacing.unit,
-		marginRight: theme.spacing.unit,
-		width: 300
-	},
+  root: {
+    marginTop: theme.spacing(2),
+  },
 	submit: {
 		margin: 'auto',
-		marginBottom: theme.spacing.unit * 2
-	}
+    marginBottom: theme.spacing(2),
+    width: '100%',
+    padding: '15px'
+  },
+  containerCenter: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
 });
 
 class Signup extends Component {
 	state = {
-		name: '',
+		username: '',
 		password: '',
 		email: '',
 		open: false,
@@ -57,7 +53,7 @@ class Signup extends Component {
 
 	clickSubmit = () => {
 		const user = {
-			name: this.state.name || undefined,
+			name: this.state.username || undefined,
 			email: this.state.email || undefined,
 			password: this.state.password || undefined
 		};
@@ -74,64 +70,70 @@ class Signup extends Component {
 		const { classes } = this.props;
 		return (
 			<div>
-				<Card className={classes.card}>
-					<CardContent>
-						<Typography
-							type="headline"
-							component="h2"
-							className={classes.title}
-						>
-							Sign Up
-						</Typography>
-						<TextField
-							id="name"
-							label="Name"
-							className={classes.textField}
-							value={this.state.name}
-							onChange={this.handleChange('name')}
-							margin="normal"
-						/>
-						<br />
-						<TextField
-							id="email"
-							type="email"
-							label="Email"
-							className={classes.textField}
-							value={this.state.email}
-							onChange={this.handleChange('email')}
-							margin="normal"
-						/>
-						<br />
-						<TextField
-							id="password"
-							type="password"
-							label="Password"
-							className={classes.textField}
-							value={this.state.password}
-							onChange={this.handleChange('password')}
-							margin="normal"
-						/>
-						<br />{' '}
-						{this.state.error && (
-							<Typography component="p" color="error">
-								<Icon color="error" className={classes.error}>
-									error
-								</Icon>
-								{this.state.error}
-							</Typography>
-						)}
-					</CardContent>
-					<CardActions>
-						<Button
-							color="primary"
-							variant="contained"
-							onClick={this.clickSubmit}
-							className={classes.submit}
-						>
-							Submit
-						</Button>
-					</CardActions>
-				</Card>
+        <Container>
+          <Paper className={classes.root}>
+            <div className={classes.containerCenter}>
+              <Typography variant="subtitle1">Join GitHub</Typography>
+              <Typography variant="h2">Create your account</Typography>
+            </div>
+            <Container maxWidth="sm">
+              <TextField
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                id="username"
+                label={"Username"}
+                name="username"
+                autoComplete="username"
+                autoFocus
+                value={this.state.username}
+                onChange={this.handleChange('username')}
+              />
+              <TextField
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                id="email"
+                label={"Email address"}
+                name="email"
+                autoComplete="email"
+                autoFocus
+                value={this.state.email}
+                onChange={this.handleChange('email')}
+              />
+              <TextField
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                name="password"
+                label={"Password"}
+                type="password"
+                id="password"
+                autoComplete="current-password"
+                value={this.state.password}
+                onChange={this.handleChange('password')}
+              />
+              <Typography variant="caption">Make sure it's at least 15 characters OR at least 8 characters including a number and a lowercase letter. <MaterialLink href="https://docs.github.com/en/github/authenticating-to-github/creating-a-strong-password" target="_blank" rel="noopener noreferrer">Learn more.</MaterialLink></Typography>
+              <br />{' '}
+              {this.state.error && (
+                <Alert className={classes.marginTop} severity="error">{this.state.error}</Alert>
+              )}
+              <br />
+              <br />
+              <Button
+                color="primary"
+                variant="contained"
+                onClick={this.clickSubmit}
+                className={classes.submit}
+              >
+                Create account
+              </Button>
+            </Container>
+          </Paper>
+        </Container>
 				<Dialog open={this.state.open} disableBackdropClick={true}>
 					<DialogTitle>New Account</DialogTitle>
 					<DialogContent>
