@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import { signin } from '../../utils/api-auth.js';
 import auth from '../../utils/auth-helper';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
+import { withStyles } from '@material-ui/core/styles';
 import { Redirect } from 'react-router-dom';
 // Material UI components
 import Link from '@material-ui/core/Link';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
@@ -23,19 +21,19 @@ const styles = theme => ({
 		maxWidth: 600,
 		margin: 'auto',
 		textAlign: 'center',
-		marginTop: theme.spacing.unit * 5,
-		paddingBottom: theme.spacing.unit * 2
+		marginTop: theme.spacing(5),
+		paddingBottom: theme.spacing(2)
 	},
 	error: {
 		verticalAlign: 'middle'
 	},
 	title: {
-		marginTop: theme.spacing.unit * 2,
+		marginTop: theme.spacing(2),
 		color: theme.palette.primary.dark
 	},
 	textField: {
-		marginLeft: theme.spacing.unit,
-		marginRight: theme.spacing.unit,
+		marginLeft: theme.spacing(1),
+		marginRight: theme.spacing(1),
 		width: 300
   },
   
