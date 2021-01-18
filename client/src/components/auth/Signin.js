@@ -19,36 +19,12 @@ import { signin } from '../../utils/api-auth.js';
 import auth from '../../utils/auth-helper';
 
 const styles = theme => ({
-	card: {
-		maxWidth: 600,
-		margin: 'auto',
-		textAlign: 'center',
-		marginTop: theme.spacing(5),
-		paddingBottom: theme.spacing(2)
-	},
-	error: {
-		verticalAlign: 'middle'
-	},
-	title: {
-		marginTop: theme.spacing(2),
-		color: theme.palette.primary.dark
-	},
-	textField: {
-		marginLeft: theme.spacing(1),
-		marginRight: theme.spacing(1),
-		width: 300
-  },
-  
-  wrapper: {
+  formRoot: {
+    marginTop: theme.spacing(8),
     paddingLeft: theme.spacing(2),
     paddingRight: theme.spacing(2),
-    paddingBottom: theme.spacing(2)
-  },
-  formContainer: {
-    marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
+    paddingBottom: theme.spacing(2),
+    backgroundColor: "#eaecef"
   },
   avatar: {
     margin: theme.spacing(1),
@@ -58,11 +34,11 @@ const styles = theme => ({
     width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing(1),
   },
-  marginTop: {
+  alertMargin: {
     marginTop: theme.spacing(1)
   },
   submit: {
-    margin: theme.spacing(3, 0, 2),
+    margin: theme.spacing(3, 0, 1),
   },
 });
 
@@ -108,17 +84,17 @@ class Signin extends Component {
 		}
 
 		return (
-      <Container component="main" maxWidth="xs">
-        <Paper className={classes.wrapper}>
-          <div className={classes.formContainer}>
+      <Container maxWidth="xs">
+        <Paper className={classes.formRoot} elevation={4}>
+          <Box display="flex" flexDirection="column" justifyContent="center" alignItems="center">
             <Avatar className={classes.avatar}>
               <LockOutlinedIcon />
             </Avatar>
-            <Typography variant="subtitle1">
+            <Typography variant="h6">
               Sign in to App
             </Typography>
             {this.state.error && (
-              <Alert className={classes.marginTop} severity="error">{this.state.error}</Alert>
+              <Alert className={classes.alertMargin} severity="error">{this.state.error}</Alert>
             )}
             <form className={classes.form} noValidate>
               <TextField
@@ -165,9 +141,9 @@ class Signin extends Component {
                 {"Sign In"}
               </Button>
             </form>
-          </div>
+          </Box>
         </Paper>
-        <Paper>
+        <Paper style={{backgroundColor: "#eaecef"}} elevation={4}>
           <Box mt={2} p={1} display="flex" justifyContent="center">
             <Typography variant="body2" style={{margin:'5px'}}>
               {"New to App? "}
@@ -177,16 +153,6 @@ class Signin extends Component {
             </Typography>{" "}
           </Box>
         </Paper>
-        <Box mt={8}>
-          <Typography variant="body2" color="textSecondary" align="center">
-            {'Copyright © '}
-            <Link color="inherit" to="/">
-              Your Website
-            </Link>{' '}
-            {new Date().getFullYear()}
-            {'.'}
-          </Typography>
-        </Box>
       </Container>
 		);
 	}
