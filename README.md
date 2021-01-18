@@ -1,5 +1,7 @@
 # mern-material-demo
 Fullstack App with auth (JWT) using MERN and Material UI.
+
+
 Original Features:
 - ES6 Node.js (Express) backend with authentication
 - Mongoose schemas for User
