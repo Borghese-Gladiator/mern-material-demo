@@ -98,7 +98,6 @@ class Signup extends Component {
                 label={"Email address"}
                 name="email"
                 autoComplete="email"
-                autoFocus
                 value={this.state.email}
                 onChange={this.handleChange('email')}
               />
