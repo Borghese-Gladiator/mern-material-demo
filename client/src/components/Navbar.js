@@ -17,6 +17,11 @@ import AccountBoxIcon from '@material-ui/icons/AccountBox';
 
 import auth from '../utils/auth-helper';
 
+const activeLinkStyle = {
+	fontWeight: "bold",
+	color: '#F44336'
+}
+
 const useStyles = makeStyles((theme) => ({
 	grow: {
 		flexGrow: 1,
@@ -127,10 +132,7 @@ function Navbar() {
 							// check for HOME exact match
 							return pathname === "/";
 						}}
-						activeStyle={{
-							fontWeight: "bold",
-							color: '#F44336'
-						}}
+						activeStyle={activeLinkStyle}
 						className={classes.link}
 					>
 						<IconButton aria-label="Home" color="inherit">
@@ -141,20 +143,14 @@ function Navbar() {
 						<div className={classes.sectionDesktop}>
 							<NavLink
 								to="/signup"
-								activeStyle={{
-									fontWeight: "bold",
-									color: '#F44336'
-								}}
+								activeStyle={activeLinkStyle}
 								className={classes.link}
 							>
 								<Button color="inherit" variant="outlined">Sign up</Button>
 							</NavLink>
 							<NavLink
 								to="/signin"
-								activeStyle={{
-									fontWeight: "bold",
-									color: '#F44336'
-								}}
+								activeStyle={activeLinkStyle}
 								className={classes.link}
 							>
 								<Button color="inherit">Sign in</Button>
@@ -165,10 +161,7 @@ function Navbar() {
 						<div className={classes.sectionDesktop}>
 							<NavLink
 								to={'/user/' + auth.isAuthenticated().user._id}
-								activeStyle={{
-									fontWeight: "bold",
-									color: '#F44336'
-								}}
+								activeStyle={activeLinkStyle}
 								className={classes.link}
 							>
 								<Button color="inherit">
