@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 // Material UI Styling
 import { withStyles } from '@material-ui/core/styles';
 // Material UI components
-import Paper from '@material-ui/core/Paper';
 import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
