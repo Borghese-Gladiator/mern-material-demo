@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { signin } from '../../utils/api-auth.js';
-import auth from '../../utils/auth-helper';
+// Routing
+import { Link, Redirect } from 'react-router-dom';
+// Material UI Styling
 import { withStyles } from '@material-ui/core/styles';
-import { Redirect } from 'react-router-dom';
 // Material UI components
-import Link from '@material-ui/core/Link';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -15,38 +14,15 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Container from '@material-ui/core/Container';
 // Material UI Lab component
 import Alert from '@material-ui/lab/Alert';
+// utils
+import { signin } from '../../utils/api-auth.js';
+import auth from '../../utils/auth-helper';
 
 const styles = theme => ({
-	card: {
-		maxWidth: 600,
-		margin: 'auto',
-		textAlign: 'center',
-		marginTop: theme.spacing(5),
-		paddingBottom: theme.spacing(2)
-	},
-	error: {
-		verticalAlign: 'middle'
-	},
-	title: {
-		marginTop: theme.spacing(2),
-		color: theme.palette.primary.dark
-	},
-	textField: {
-		marginLeft: theme.spacing(1),
-		marginRight: theme.spacing(1),
-		width: 300
-  },
-  
-  wrapper: {
-    paddingLeft: theme.spacing(2),
-    paddingRight: theme.spacing(2),
-    paddingBottom: theme.spacing(2)
-  },
-  formContainer: {
-    marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
+  formRoot: {
+    marginTop: theme.spacing(3),
+    padding: theme.spacing(2),
+    backgroundColor: "#eaecef"
   },
   avatar: {
     margin: theme.spacing(1),
@@ -56,11 +32,11 @@ const styles = theme => ({
     width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing(1),
   },
-  marginTop: {
+  alertMargin: {
     marginTop: theme.spacing(1)
   },
   submit: {
-    margin: theme.spacing(3, 0, 2),
+    margin: theme.spacing(3, 0, 1),
   },
 });
 
@@ -106,27 +82,19 @@ class Signin extends Component {
 		}
 
 		return (
-      
       <Container component="main" maxWidth="xs">
-        <Box mt={2} p={2}
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center'
-          }}
-        >
+        <Box display="flex" flexDirection="column" justifyContent="center" alignItems="center">
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
           </Avatar>
-          <Typography variant="subtitle1">
+          <Typography variant="h6">
             Reset your password
           </Typography>
         </Box>
-        <Paper className={classes.wrapper} style={{backgroundColor: "#eaecef"}}>
+        <Paper className={classes.formRoot} elevation={4} style={{backgroundColor: "#eaecef"}}>
           <div>
             {this.state.error && (
-              <Alert className={classes.marginTop} severity="error">{this.state.error}</Alert>
+              <Alert className={classes.alertMargin} severity="error">{this.state.error}</Alert>
             )}
             <Typography variant="subtitle2">
               Enter your user account's verified email address and we will send you a password reset link.
@@ -158,29 +126,16 @@ class Signin extends Component {
             </form>
           </div>
         </Paper>
-        <Paper>
-          <Box mt={2} p={2} display="flex" justifyContent="center">
-            <Typography variant="body2">
-              New to App?                      
-            </Typography>
-            <Typography variant="body2">
-              {" "}                      
-            </Typography>
-            <Link to="/signup" variant="body2">
-              {"Create an account"}
-            </Link>
+        <Paper style={{backgroundColor: "#eaecef"}} elevation={4}>
+          <Box mt={2} p={1} display="flex" justifyContent="center">
+            <Typography variant="body2" style={{margin:'5px'}}>
+              {"New to App? "}
+              <Link to="/signup" style={{margin:'5px'}}>
+                {"Create an account"}
+              </Link>
+            </Typography>{" "}
           </Box>
         </Paper>
-        <Box mt={8}>
-          <Typography variant="body2" color="textSecondary" align="center">
-            {'Copyright © '}
-            <Link color="inherit" href="https://material-ui.com/">
-              Your Website
-            </Link>{' '}
-            {new Date().getFullYear()}
-            {'.'}
-          </Typography>
-        </Box>
       </Container>
 		);
 	}
