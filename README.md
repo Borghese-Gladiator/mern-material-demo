@@ -1,5 +1,9 @@
 # mern-material-demo
-Fullstack App with auth (JWT) using MERN and Material UI
+Fullstack App with auth (JWT) using MERN and Material UI.
+Original Features:
+- ES6 Node.js (Express) backend with authentication
+- Mongoose schemas for User
+- React frontend
 
 # Custom Changes
 - upgraded Babel version 5.x to 7.x
