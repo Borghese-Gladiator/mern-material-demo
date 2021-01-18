@@ -15,7 +15,6 @@ import './NotFound.css';
 
 const styles = theme => ({
   root: {
-    minHeight: '80vh',
     marginTop: theme.spacing(5),
   },
   bigText: {
