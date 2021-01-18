@@ -71,7 +71,7 @@ class Signup extends Component {
 		return (
 			<div>
         <Container style={{minHeight: '80vh'}}>
-          <Paper className={classes.root}>
+          <div className={classes.root}>
             <div className={classes.containerCenter}>
               <Typography variant="subtitle1">Join GitHub</Typography>
               <Typography variant="h2">Create your account</Typography>
@@ -132,7 +132,7 @@ class Signup extends Component {
                 Create account
               </Button>
             </Container>
-          </Paper>
+          </div>
         </Container>
 				<Dialog open={this.state.open} disableBackdropClick={true}>
 					<DialogTitle>New Account</DialogTitle>
