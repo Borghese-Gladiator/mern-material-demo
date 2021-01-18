@@ -15,6 +15,7 @@ function Routes() {
 	return (
 		<div>
 			<Navbar />
+			<div style={{minHeight: "90vh"}}>
 				<Switch>
 					<Route exact path="/" component={Home} />
 					<PrivateRoutes path="/user/edit/:userId" />
@@ -24,6 +25,7 @@ function Routes() {
 					<Route path="/password_reset" component={ForgotPassword} />
 					<Route component={NotFound} />
 				</Switch>
+			</div>
  			<Footer />
 		</div>
 	);

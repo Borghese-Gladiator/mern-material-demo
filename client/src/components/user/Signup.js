@@ -70,7 +70,7 @@ class Signup extends Component {
 		const { classes } = this.props;
 		return (
 			<div>
-        <Container style={{minHeight: '80vh'}}>
+        <Container>
           <div className={classes.root}>
             <div className={classes.containerCenter}>
               <Typography variant="subtitle1">Join GitHub</Typography>
